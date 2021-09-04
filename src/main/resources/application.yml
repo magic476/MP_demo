@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: test-service
+  #datasource:
+  #  url: jdbc:mysql://localhost:3306/aaa
+  #  username: root
+  #  password: 2274766152
+  jpa:
+    #hibernate:
+    #  naming:
+    #    physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true # 打印sql
+
+#mybatis:
+#  configuration:
+#    map-underscore-to-camel-case: true # 开启驼峰命名映射,开启之后自定义sql结果集可映射到驼峰命名的属性上，@Column注解自定义命名的属性任不能映射到，需在
+    # Mapper中加@Results注解配置映射关系
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开启打印sql
+mybatis-plus:
+  # 不开启驼峰命名，实体类中属性名必须与表中字段名一致
+  global-config:
+   db-column-underline: true # 开启驼峰命名映射,这个配置对MP提供的sql有效，对自定义sql无效
+  configuration:
+      map-underscore-to-camel-case: true # 这个也是开启驼峰命名映射,这个配置对MP提供的sql有效，对自定义sql也有效
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开启打印sql 关闭org.apache.ibatis.logging.nologging.NoLoggingImpl
